@@ -37,32 +37,14 @@ class Solution {
         int adder = 0;
         String result = "";
         
-        while( i1!= -1 && i2 != -1){
-            int n1 = s1.charAt(i1--) - '0' ;
-            int n2 = s2.charAt(i2--) - '0' ;
+        while( !(i1== -1 && i2 == -1)){
+            int n1 = i1 == -1 ? 0 : s1.charAt(i1--) - '0' ;
+            int n2 = i2 == -1 ? 0 : s2.charAt(i2--) - '0' ;
             int tmpSum = n1 + n2 + adder;
             int cur = tmpSum %10;
             adder = tmpSum/10;
             result = cur +  result ;
            // System.out.println("res: " + result);
-        }
-        
-        while( i1!= -1 ){
-            int n1 = s1.charAt(i1--) - '0' ;
-            int tmpSum = n1 + adder;
-            int cur = tmpSum %10;
-            adder = tmpSum/10;
-            result = cur +  result ;
-            //System.out.println("res: " + result);
-        }
-        
-        while(  i2 != -1){
-            int n2 = s2.charAt(i2--) - '0' ;
-            int tmpSum = + n2 + adder;
-            int cur = tmpSum %10;
-            adder = tmpSum/10;
-            result = cur +  result ;
-            //System.out.println("res: " + result);
         }
         
         if(adder != 0)
