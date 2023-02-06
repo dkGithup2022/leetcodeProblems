@@ -2,15 +2,15 @@ class Solution {
     public String longestPalindrome(String s) {
         int res = 0;
         String ms = "";
+        
         if(s.length() <=1)
             return s;
         
         for(int i = 0; i< s.length(); i++){
-            for(int j = i + 1; j<=s.length(); j++ ){
+            for(int j = i + Math.max(1,res); j<=s.length(); j++ ){
                 if(j-i <= res)
                     continue;
-                //System.out.println("i : " + i + ", j :" + j);
-                //System.out.println("ss : " + s.substring(i,j));
+                
                 if(isP(s.substring(i,j))){
                     ms = s.substring(i,j);
                     res = j-i;
