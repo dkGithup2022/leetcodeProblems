@@ -39,8 +39,7 @@ class Solution {
         
         while(!q.isEmpty()){  
             ArrayList<State> tmp = new ArrayList();
-            //System.out.println("level : " + level);
-            while(!q.isEmpty())
+  while(!q.isEmpty())
                 tmp.add(q.poll());
             
             for(State s : tmp){
@@ -59,13 +58,11 @@ class Solution {
             
             if(level%2==0){
                 for(int i = 0; i< tmp.size(); i++){
-                   // System.out.println(tmp.get(i).node.val+", ");
                     layer.add(tmp.get(i).node.val);
                 }
                 
             }else{
                 for(int i = tmp.size()-1; i>=0 ;i--){
-                    //System.out.println(tmp.get(i).node.val+", ");
                     layer.add(tmp.get(i).node.val);
                 }
             }
