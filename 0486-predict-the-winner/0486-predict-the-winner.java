@@ -1,18 +1,11 @@
 class Solution {
     public boolean PredictTheWinner(int[] nums) {
-        int x = play(nums,0,nums.length-1, 1);
-        System.out.println(x);
+        int x = play(nums,0,nums.length-1);
         return x>=0;
     }
-    private int play(int[] nums, int s, int e, int turn){
-        if( s == e){
-            return nums[s]*turn;   
-        }
-
-        int left = nums[s]*turn + play(nums, s+1, e , turn * -1 );
-        int right = nums[e]*turn + play(nums, s, e-1, turn * -1);
-        
-        return Math.max(left*turn, right*turn) * turn;
+    
+    private int play(int[] nums, int s, int e){        
+        return s==e ? nums[e] : Math.max(nums[e] -play(nums, s, e-1), nums[s] - play(nums, s+1, e));
     }
     
     /*
