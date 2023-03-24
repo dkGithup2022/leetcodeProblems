@@ -1,5 +1,4 @@
 class Solution {
-    
     List<List<String>> res = new ArrayList();
     
     public List<List<String>> partition(String s) {
@@ -8,24 +7,17 @@ class Solution {
     }
     
     private void btrk(String s, List<String> cur,  int former, int idx){
-                
-        //System.out.printf("\n former : %d, idx: %d \n", former,idx);
-        //System.out.println("piece: "+ s.substring(former,idx));
-        //System.out.println("cur: "+ cur);
-        
         
         if(idx == s.length()){
             if(!isPal(s.substring(former,idx)))
                 return;
             
             cur.add(s.substring(former,idx));
-            //System.out.println("cur: " + cur);
              res.add(List.copyOf(cur));
             cur.remove(cur.size()-1);
             return;
         }
 
-        //System.out.println("ispal ?  "+isPal(s.substring(former,idx)));
         if(isPal(s.substring(former,idx))){
             
             cur.add(s.substring(former,idx));
