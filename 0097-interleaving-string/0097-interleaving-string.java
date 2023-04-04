@@ -4,6 +4,8 @@ class Solution {
         if(s1.length() + s2.length() != s3.length())
             return false;
         
+        // 아무것도 포함되지 않은 상태가 있어서 +1, 1부터 포함으로 치기 때문에 비교에서 +1 필요
+        // ㄴ> 구현에서 어려운 부분
         boolean[][] dp = new boolean[s1.length()+1][ s2.length() +1];
         for(int i = 0; i<=s1.length(); i++){
             for(int j =0 ; j<= s2.length(); j++){
@@ -36,6 +38,9 @@ class Solution {
 }
 
 /* TIME EXCEEDED  -> brute force with backtracking 
+// 여기 같은 DP 문제는 백트래킹을 조건없이 돌리면 타임아웃.
+// aaaaa..,aaa..,aaaa....
+// 위의 갯수가 100 개라면 분기가 100 개 생김. 2^100
 class Solution {
     String x = "";
     String s1;
